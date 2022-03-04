@@ -27,6 +27,10 @@
     border: none;
     background: white;
   }
+  form input:active {
+    outline: none;
+  }
+
   form button {
     color: #ff6f47;
     background: #f7fffe;
@@ -95,6 +99,10 @@
     text-decoration: line-through;
     opacity: 0.5;
   }
+
+  .todo-input {
+    outline: none;
+  }
   
   /*CUSTOM SELECTOR */
   select {
@@ -117,6 +125,7 @@
 
   select {
     color: #ff6f47;
+    background-color: white;
     font-family: "Poppins", sans-serif;
     /* font-weight: 700; */
     font-size: 1.2rem;

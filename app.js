@@ -19,10 +19,8 @@ function addTodo(e){
     const newTodo = document.createElement("li")
     //get value from input field
     newTodo.innerText = todoInput.value
-    console.log(todoInput.value);
     //save to local storage
     saveToLocalStorage(todoInput.value)
-
     newTodo.classList.add("todo-item")
     todoDiv.appendChild(newTodo)
     //check mark button
@@ -47,10 +45,8 @@ function deleteCheck(e){
 
     e.preventDefault()
     const item = e.target
-    console.log({item});
     //delete todo
     if(item.classList[0] === "trash-btn"){
-        // item.remove()
         const todo = item.parentElement
         todo.classList.add("fall")
         removeLocalTodos(todo)
@@ -62,12 +58,12 @@ function deleteCheck(e){
     if(item.classList[0] === "complete-btn"){
         const todo = item.parentElement
         todo.classList.toggle("completed")
-        console.log(todo.classList);
-    }
-    
+    }  
+
 }
 
 function filterTodo(e){
+
     const todos = todoList.childNodes
     todos.forEach((todo) => {
         switch(e.target.value){
@@ -104,6 +100,7 @@ function saveToLocalStorage(todo){
     }
     todos.push(todo)
     localStorage.setItem("todos", JSON.stringify(todos))
+
 }
 
 function removeLocalTodos(todo){
@@ -115,7 +112,6 @@ function removeLocalTodos(todo){
     }else{
         todos = JSON.parse(localStorage.getItem('todos'))
     }
-    
     const todoIndex = todo.children[0].innerText
     todos.splice(todos.indexOf(todoIndex), 1);
     //save rest back to local storage
@@ -124,6 +120,7 @@ function removeLocalTodos(todo){
 }
 
 function getTodos(){
+
     let todos;
     if(localStorage.getItem("todos" === null)){
         todos = []
@@ -156,8 +153,7 @@ function getTodos(){
             todoDiv.appendChild(trashButton)
             //now attach the whole todo to the todolist
             todoList.appendChild(todoDiv)
-    
         })
     }
-
+    
 }

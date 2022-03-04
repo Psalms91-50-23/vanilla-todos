@@ -25,7 +25,6 @@ function addTodo(e){
     todoDiv.appendChild(newTodo)
     //check mark button
     const completedButton = document.createElement("button")
-    // completedButton.innerText = '<i class="fas fa-check"></i>'
     completedButton.innerHTML ='<i class="fas fa-check"></i>'
     completedButton.classList.add("complete-btn")
     todoDiv.appendChild(completedButton)
